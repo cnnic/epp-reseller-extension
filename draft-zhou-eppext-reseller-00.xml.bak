@@ -292,19 +292,19 @@ C:</epp>
                 <section title="EPP &lt;update&gt; Command">
                     <t>This extension defines additional elements for the EPP &lt;update&gt; command described in the EPP domain mapping 
                     <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>. No additional elements are defined for the EPP &lt;update&gt; response.</t>
-                    <t>The EPP &lt;update&gt; command provides a transform operation that allows a client to modify the attributes of a domain object. In addition to the EPP command elements described in the EPP domain mapping, the command MUST contain an &lt;extension&gt; element, and the &lt;extension&gt; element MUST contain a child &lt;resellerext:update&gt; element that identifies the extension namespace if the client wants to update the domain object with data defined in this extension. The &lt;resellerext:update&gt; element contains the following child elements:</t>
+                    <t>The EPP &lt;update&gt; command provides a transform operation that allows a client to modify the attributes of a domain object. In addition to the EPP command elements described in the EPP domain mapping, the command MUST contain an &lt;extension&gt; element, and the &lt;extension&gt; element MUST contain a child &lt;reseller:update&gt; element that identifies the extension namespace if the client wants to update the domain object with data defined in this extension. The &lt;reseller:update&gt; element contains the following child elements:</t>
                     <t>
                         <list style="symbols">
-                            <t>An OPTIONAL &lt;resellerext:add&gt; element that contains attribute values to be added to the object.</t>
-                            <t>An OPTIONAL &lt;resellerext:rem&gt; element that contains attribute values to be removed from the object.</t>
-                            <t>An OPTIONAL &lt;resellerext:chg&gt; element that contains attribute values to be changed.</t>
+                            <t>An OPTIONAL &lt;reseller:add&gt; element that contains attribute values to be added to the object.</t>
+                            <t>An OPTIONAL &lt;reseller:rem&gt; element that contains attribute values to be removed from the object.</t>
+                            <t>An OPTIONAL &lt;reseller:chg&gt; element that contains attribute values to be changed.</t>
                         </list>
                     </t>
-                    <t>At least one &lt;resellerext:add&gt;, &lt;resellerext:rem&gt; or &lt;resellerext:rem&gt; element MUST be provided. The &lt;resellerext:add&gt;, &lt;resellerext:rem&gt; and &lt;resellerext:rem&gt; elements contain the following child element:</t>
+                    <t>At least one &lt;reseller:add&gt;, &lt;reseller:rem&gt; or &lt;reseller:rem&gt; element MUST be provided. The &lt;reseller:add&gt;, &lt;reseller:rem&gt; and &lt;reseller:rem&gt; elements contain the following child element:</t>
                     <t>
                         <list style="symbols">
-                            <t>A &lt;resellerext:resID&gt; element that contains the identifier of the reseller of a sponsoring registrar.</t>
-                            <t>An OPTIONAL &lt;resellerext:resName&gt; element that contains the name of the reseller of a sponsoring registrar.</t>
+                            <t>A &lt;reseller:resID&gt; element that contains the identifier of the reseller of a sponsoring registrar.</t>
+                            <t>An OPTIONAL &lt;reseller:resName&gt; element that contains the name of the reseller of a sponsoring registrar.</t>
                         </list>
                     </t>
                     <t>Example &lt;update&gt; command, adding a reseller:</t>
