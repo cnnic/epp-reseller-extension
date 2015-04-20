@@ -516,13 +516,13 @@
 <p id="rfc.section.2.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119">[RFC2119]</a>.</p>
 <p id="rfc.section.2.p.2">In examples, "C:" represents lines sent by a protocol client and "S:" represents lines returned by a protocol server. Indentation and white space in examples are provided only to illustrate element relationships and are not a REQUIRED feature of this specification.</p>
 <p id="rfc.section.2.p.3">XML is case sensitive. Unless stated otherwise, XML specifications and examples provided in this document MUST be interpreted in the character case presented to develop a conforming implementation.</p>
-<p id="rfc.section.2.p.4">reseller-1.0 in this document is used as an abbreviation for urn:ietf:params:xml:ns:reseller-1.0.</p>
+<p id="rfc.section.2.p.4">resellerext-1.0 in this document is used as an abbreviation for urn:ietf:params:xml:ns:resellerext-1.0.</p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> Object Attributes</h1>
 <p id="rfc.section.3.p.1">This extension adds additional elements to the EPP domain name mapping <a href="#RFC5731">[RFC5731]</a>. Only the new elements are described here.</p>
 <h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> Reseller Identifier</h1>
-<p id="rfc.section.3.1.p.1">Reseller identifier provides the ID of the reseller of a sponsoring registrar. Its corresponding element is &lt;reseller:resID&gt; defined in this document.</p>
+<p id="rfc.section.3.1.p.1">Reseller identifier provides the ID of the reseller of a sponsoring registrar. Its corresponding element is &lt;resellerext:resID&gt; defined in this document.</p>
 <h1 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> Reseller Name</h1>
-<p id="rfc.section.3.2.p.1">Reseller name provides the name of the reseller of a sponsoring registrar. Its corresponding element is &lt;reseller:resName&gt; defined in this document.</p>
+<p id="rfc.section.3.2.p.1">Reseller name provides the name of the reseller of a sponsoring registrar. Its corresponding element is &lt;resellerext:resName&gt; defined in this document.</p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> EPP Command Mapping</h1>
 <p id="rfc.section.4.p.1">A detailed description of the EPP syntax and semantics can be found in the EPP core protocol specification <a href="#RFC5730">[RFC5730]</a>. The command mappings described here are specifically for use in provisioning and managing reseller information via EPP.</p>
 <h1 id="rfc.section.4.1"><a href="#rfc.section.4.1">4.1.</a> EPP Query Commands</h1>
@@ -554,8 +554,8 @@ C:&lt;/epp&gt;
 <p/>
 
 <ul>
-  <li>A &lt;reseller:resID&gt; element that contains the identifier of the reseller of a sponsoring registrar.</li>
-  <li>An OPTIONAL &lt;reseller:resName&gt; element that contains the name of the reseller of a sponsoring registrar.</li>
+  <li>A &lt;resellerext:resID&gt; element that contains the identifier of the reseller of a sponsoring registrar.</li>
+  <li>An OPTIONAL &lt;resellerext:resName&gt; element that contains the name of the reseller of a sponsoring registrar.</li>
 </ul>
 
 <p> </p>
@@ -593,10 +593,10 @@ S:    &lt;extension&gt;
 S:      &lt;rgp:infData xmlns:rgp="urn:ietf:params:xml:ns:rgp-1.0"&gt;
 S:        &lt;rgp:rgpStatus s="addPeriod"/&gt;
 S:      &lt;/rgp:infData&gt;
-S:      &lt;reseller:infData xmlns:reseller="urn:ietf:params:xml:ns:reseller-1.0"&gt;
-S:        &lt;reseller:resID&gt;myreseller&lt;/reseller:resID&gt;
-S:        &lt;reseller:resName&gt;example&lt;/reseller:resName&gt;
-S:      &lt;/reseller:infData&gt;
+S:      &lt;resellerext:infData xmlns:resellerext="urn:ietf:params:xml:ns:resellerext-1.0"&gt;
+S:        &lt;resellerext:resID&gt;myreseller&lt;/resellerext:resID&gt;
+S:        &lt;resellerext:resName&gt;example&lt;/resellerext:resName&gt;
+S:      &lt;/resellerext:infData&gt;
 S:    &lt;/extension&gt;
 S:    &lt;trID&gt;
 S:      &lt;clTRID&gt;ngcl-IvJjzMZc&lt;/clTRID&gt;
@@ -614,12 +614,12 @@ S:&lt;/epp&gt;
 <p id="rfc.section.4.2.p.1">EPP provides five commands to transform domain objects: &lt;create&gt; to create an instance of a domain object, &lt;delete&gt; to delete an instance of a domain object, &lt;renew&gt; to extend the validity period of a domain object, &lt;transfer&gt; to manage domain object sponsorship changes, and &lt;update&gt; to change information associated with a domain object.</p>
 <h1 id="rfc.section.4.2.1"><a href="#rfc.section.4.2.1">4.2.1.</a> EPP &lt;create&gt; Command</h1>
 <p id="rfc.section.4.2.1.p.1">This extension defines additional elements for the EPP &lt;create&gt; command described in the EPP domain mapping <a href="#RFC5731">[RFC5731]</a>, host mapping <a href="#RFC5732">[RFC5732]</a> and contact mapping <a href="#RFC5733">[RFC5733]</a>. No additional elements are defined for the EPP &lt;create&gt; response.</p>
-<p id="rfc.section.4.2.1.p.2">The EPP &lt;create&gt; command provides a transform operation that allows a client to create a domain object. In addition to the EPP command elements described in the EPP domain mapping <a href="#RFC5731">[RFC5731]</a>, host mapping <a href="#RFC5732">[RFC5732]</a> and contact mapping <a href="#RFC5733">[RFC5733]</a>, the command MUST contain an &lt;extension&gt; element, and the &lt;extension&gt; element MUST contain a child &lt;reseller:create&gt; element that identifies the extension namespace if the client wants to associate data defined in this extension to the domain object. The &lt;reseller:create&gt; element contains the following child elements:</p>
+<p id="rfc.section.4.2.1.p.2">The EPP &lt;create&gt; command provides a transform operation that allows a client to create a domain object. In addition to the EPP command elements described in the EPP domain mapping <a href="#RFC5731">[RFC5731]</a>, host mapping <a href="#RFC5732">[RFC5732]</a> and contact mapping <a href="#RFC5733">[RFC5733]</a>, the command MUST contain an &lt;extension&gt; element, and the &lt;extension&gt; element MUST contain a child &lt;resellerext:create&gt; element that identifies the extension namespace if the client wants to associate data defined in this extension to the domain object. The &lt;resellerext:create&gt; element contains the following child elements:</p>
 <p/>
 
 <ul>
-  <li>A &lt;reseller:resID&gt; element that contains the identifier of the reseller of a sponsoring registrar.</li>
-  <li>An OPTIONAL &lt;reseller:resName&gt; element that contains the name of the reseller of a sponsoring registrar.</li>
+  <li>A &lt;resellerext:resID&gt; element that contains the identifier of the reseller of a sponsoring registrar.</li>
+  <li>An OPTIONAL &lt;resellerext:resName&gt; element that contains the name of the reseller of a sponsoring registrar.</li>
 </ul>
 
 <p> </p>
@@ -646,10 +646,10 @@ C:        &lt;/domain:authInfo&gt;
 C:      &lt;/domain:create&gt;
 C:    &lt;/create&gt;
 C:    &lt;extension&gt;
-C:      &lt;reseller:create xmlns:reseller="urn:ietf:params:xml:ns:reseller-1.0"&gt;
-C:        &lt;reseller:resID&gt;myreseller&lt;/reseller:resID&gt;
-C:        &lt;reseller:resName&gt;example&lt;/reseller:resName&gt;
-C:      &lt;/reseller:create&gt;
+C:      &lt;resellerext:create xmlns:resellerext="urn:ietf:params:xml:ns:resellerext-1.0"&gt;
+C:        &lt;resellerext:resID&gt;myreseller&lt;/resellerext:resID&gt;
+C:        &lt;resellerext:resName&gt;example&lt;/resellerext:resName&gt;
+C:      &lt;/resellerext:create&gt;
 C:    &lt;/extension&gt;
 C:    &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
 C:  &lt;/command&gt;
@@ -666,22 +666,22 @@ C:&lt;/epp&gt;
 <p id="rfc.section.4.2.4.p.1">This extension does not add any elements to the EPP &lt;transfer&gt; command or &lt;transfer&gt; response described in the EPP domain mapping <a href="#RFC5731">[RFC5731]</a>, host mapping <a href="#RFC5732">[RFC5732]</a> and contact mapping <a href="#RFC5733">[RFC5733]</a>.</p>
 <h1 id="rfc.section.4.2.5"><a href="#rfc.section.4.2.5">4.2.5.</a> EPP &lt;update&gt; Command</h1>
 <p id="rfc.section.4.2.5.p.1">This extension defines additional elements for the EPP &lt;update&gt; command described in the EPP domain mapping <a href="#RFC5731">[RFC5731]</a>, host mapping <a href="#RFC5732">[RFC5732]</a> and contact mapping <a href="#RFC5733">[RFC5733]</a>. No additional elements are defined for the EPP &lt;update&gt; response.</p>
-<p id="rfc.section.4.2.5.p.2">The EPP &lt;update&gt; command provides a transform operation that allows a client to modify the attributes of a domain object. In addition to the EPP command elements described in the EPP domain mapping, the command MUST contain an &lt;extension&gt; element, and the &lt;extension&gt; element MUST contain a child &lt;reseller:update&gt; element that identifies the extension namespace if the client wants to update the domain object with data defined in this extension. The &lt;reseller:update&gt; element contains the following child elements:</p>
+<p id="rfc.section.4.2.5.p.2">The EPP &lt;update&gt; command provides a transform operation that allows a client to modify the attributes of a domain object. In addition to the EPP command elements described in the EPP domain mapping, the command MUST contain an &lt;extension&gt; element, and the &lt;extension&gt; element MUST contain a child &lt;resellerext:update&gt; element that identifies the extension namespace if the client wants to update the domain object with data defined in this extension. The &lt;resellerext:update&gt; element contains the following child elements:</p>
 <p/>
 
 <ul>
-  <li>An OPTIONAL &lt;reseller:add&gt; element that contains attribute values to be added to the object.</li>
-  <li>An OPTIONAL &lt;reseller:rem&gt; element that contains attribute values to be removed from the object.</li>
-  <li>An OPTIONAL &lt;reseller:chg&gt; element that contains attribute values to be changed.</li>
+  <li>An OPTIONAL &lt;resellerext:add&gt; element that contains attribute values to be added to the object.</li>
+  <li>An OPTIONAL &lt;resellerext:rem&gt; element that contains attribute values to be removed from the object.</li>
+  <li>An OPTIONAL &lt;resellerext:chg&gt; element that contains attribute values to be changed.</li>
 </ul>
 
 <p> </p>
-<p id="rfc.section.4.2.5.p.4">At least one &lt;reseller:add&gt;, &lt;reseller:rem&gt; or &lt;reseller:rem&gt; element MUST be provided. The &lt;reseller:add&gt;, &lt;reseller:rem&gt; and &lt;reseller:rem&gt; elements contain the following child element:</p>
+<p id="rfc.section.4.2.5.p.4">At least one &lt;resellerext:add&gt;, &lt;resellerext:rem&gt; or &lt;resellerext:rem&gt; element MUST be provided. The &lt;resellerext:add&gt;, &lt;resellerext:rem&gt; and &lt;resellerext:rem&gt; elements contain the following child element:</p>
 <p/>
 
 <ul>
-  <li>A &lt;reseller:resID&gt; element that contains the identifier of the reseller of a sponsoring registrar.</li>
-  <li>An OPTIONAL &lt;reseller:resName&gt; element that contains the name of the reseller of a sponsoring registrar.</li>
+  <li>A &lt;resellerext:resID&gt; element that contains the identifier of the reseller of a sponsoring registrar.</li>
+  <li>An OPTIONAL &lt;resellerext:resName&gt; element that contains the name of the reseller of a sponsoring registrar.</li>
 </ul>
 
 <p> </p>
@@ -697,12 +697,12 @@ C:        &lt;domain:name&gt;example.com&lt;/domain:name&gt;
 C:      &lt;/domain:update&gt;
 C:    &lt;/update&gt;
 C:    &lt;extension&gt;
-C:      &lt;reseller:update xmlns:reseller="urn:ietf:params:xml:ns:reseller-1.0"&gt;
-C:        &lt;reseller:add&gt;
-C:          &lt;reseller:resID&gt;myreseller&lt;/reseller:resID&gt;
-C:          &lt;reseller:resName&gt;example&lt;/reseller:resName&gt;
-C:        &lt;/reseller:add&gt;
-C:      &lt;/reseller:update&gt;
+C:      &lt;resellerext:update xmlns:resellerext="urn:ietf:params:xml:ns:resellerext-1.0"&gt;
+C:        &lt;resellerext:add&gt;
+C:          &lt;resellerext:resID&gt;myreseller&lt;/resellerext:resID&gt;
+C:          &lt;resellerext:resName&gt;example&lt;/resellerext:resName&gt;
+C:        &lt;/resellerext:add&gt;
+C:      &lt;/resellerext:update&gt;
 C:    &lt;/extension&gt;
 C:    &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
 C:  &lt;/command&gt;
@@ -721,11 +721,11 @@ C:        &lt;domain:name&gt;example.com&lt;/domain:name&gt;
 C:      &lt;/domain:update&gt;
 C:    &lt;/update&gt;
 C:    &lt;extension&gt;
-C:      &lt;reseller:update xmlns:reseller="urn:ietf:params:xml:ns:reseller-1.0"&gt;
-C:        &lt;reseller:rem&gt;
-C:          &lt;reseller:resID&gt;myreseller&lt;/reseller:resID&gt;
-C:        &lt;/reseller:rem&gt;
-C:      &lt;/reseller:update&gt;
+C:      &lt;resellerext:update xmlns:resellerext="urn:ietf:params:xml:ns:resellerext-1.0"&gt;
+C:        &lt;resellerext:rem&gt;
+C:          &lt;resellerext:resID&gt;myreseller&lt;/resellerext:resID&gt;
+C:        &lt;/resellerext:rem&gt;
+C:      &lt;/resellerext:update&gt;
 C:    &lt;/extension&gt;
 C:    &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
 C:  &lt;/command&gt;
@@ -744,11 +744,11 @@ C:        &lt;domain:name&gt;example.com&lt;/domain:name&gt;
 C:      &lt;/domain:update&gt;
 C:    &lt;/update&gt;
 C:    &lt;extension&gt;
-C:      &lt;reseller:update xmlns:reseller="urn:ietf:params:xml:ns:reseller-1.0"&gt;
-C:        &lt;reseller:chg&gt;
-C:          &lt;reseller:resID&gt;myreseller&lt;/reseller:resID&gt;
-C:        &lt;/reseller:chg&gt;
-C:      &lt;/reseller:update&gt;
+C:      &lt;resellerext:update xmlns:resellerext="urn:ietf:params:xml:ns:resellerext-1.0"&gt;
+C:        &lt;resellerext:chg&gt;
+C:          &lt;resellerext:resID&gt;myreseller&lt;/resellerext:resID&gt;
+C:        &lt;/resellerext:chg&gt;
+C:      &lt;/resellerext:update&gt;
 C:    &lt;/extension&gt;
 C:    &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
 C:  &lt;/command&gt;
@@ -763,8 +763,8 @@ C:&lt;/epp&gt;
 BEGIN
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 
-&lt;schema targetNamespace="urn:ietf:params:xml:ns:reseller-1.0"
-        xmlns:resellerr="urn:ietf:params:xml:ns:reseller-1.0"
+&lt;schema targetNamespace="urn:ietf:params:xml:ns:resellerext-1.0"
+        xmlns:resellerr="urn:ietf:params:xml:ns:resellerext-1.0"
         xmlns:epp="urn:ietf:params:xml:ns:epp-1.0"
         xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
         xmlns="http://www.w3.org/2001/XMLSchema"
@@ -787,8 +787,8 @@ Import common element types.
   &lt;/annotation&gt;  
   
 &lt;!-- Child elements found in EPP commands. --&gt;
-  &lt;element name="create" type="reseller:createType"/&gt;
-  &lt;element name="update" type="reseller:updateType"/&gt;
+  &lt;element name="create" type="resellerext:createType"/&gt;
+  &lt;element name="update" type="resellerext:updateType"/&gt;
 
 &lt;!-- Child elements of the &lt;reseller:create&gt; command 
 All elements must be present at time of creation
@@ -811,9 +811,9 @@ At least one element should be present
 
   &lt;complexType name="updateType"&gt;
     &lt;sequence&gt;
-      &lt;element name="add" type="reseller:addRemChgType" minOccurs="0"/&gt;
-      &lt;element name="rem" type="reseller:addRemChgType" minOccurs="0"/&gt;
-      &lt;element name="chg" type="reseller:addRemChgType" minOccurs="0"/&gt;
+      &lt;element name="add" type="resellerext:addRemChgType" minOccurs="0"/&gt;
+      &lt;element name="rem" type="resellerext:addRemChgType" minOccurs="0"/&gt;
+      &lt;element name="chg" type="resellerext:addRemChgType" minOccurs="0"/&gt;
     &lt;/sequence&gt;
   &lt;/complexType&gt;
 
@@ -828,7 +828,7 @@ At least one element should be present
 
 &lt;!-- Child response element --&gt;
 
-  &lt;element name="infData" type="reseller:infDataType"/&gt;
+  &lt;element name="infData" type="resellerext:infDataType"/&gt;
 
 &lt;!-- &lt;reseller:infData&gt; response elements --&gt;
 

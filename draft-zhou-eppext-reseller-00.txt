@@ -155,8 +155,8 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
    and examples provided in this document MUST be interpreted in the
    character case presented to develop a conforming implementation.
 
-   reseller-1.0 in this document is used as an abbreviation for
-   urn:ietf:params:xml:ns:reseller-1.0.
+   resellerext-1.0 in this document is used as an abbreviation for
+   urn:ietf:params:xml:ns:resellerext-1.0.
 
 
 
@@ -178,14 +178,14 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 3.1.  Reseller Identifier
 
    Reseller identifier provides the ID of the reseller of a sponsoring
-   registrar.  Its corresponding element is <reseller:resID> defined in
-   this document.
+   registrar.  Its corresponding element is <resellerext:resID> defined
+   in this document.
 
 3.2.  Reseller Name
 
    Reseller name provides the name of the reseller of a sponsoring
-   registrar.  Its corresponding element is <reseller:resName> defined
-   in this document.
+   registrar.  Its corresponding element is <resellerext:resName>
+   defined in this document.
 
 4.  EPP Command Mapping
 
@@ -251,11 +251,11 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
    extension and based on its service policy.  The <reseller:infData>
    element contains the following child elements:
 
-   o  A <reseller:resID> element that contains the identifier of the
+   o  A <resellerext:resID> element that contains the identifier of the
       reseller of a sponsoring registrar.
 
-   o  An OPTIONAL <reseller:resName> element that contains the name of
-      the reseller of a sponsoring registrar.
+   o  An OPTIONAL <resellerext:resName> element that contains the name
+      of the reseller of a sponsoring registrar.
 
    Example <info> response for an authorized client:
 
@@ -313,10 +313,10 @@ S:    <extension>
 S:      <rgp:infData xmlns:rgp="urn:ietf:params:xml:ns:rgp-1.0">
 S:        <rgp:rgpStatus s="addPeriod"/>
 S:      </rgp:infData>
-S:      <reseller:infData xmlns:reseller="urn:ietf:params:xml:ns:reseller-1.0">
-S:        <reseller:resID>myreseller</reseller:resID>
-S:        <reseller:resName>example</reseller:resName>
-S:      </reseller:infData>
+S:      <resellerext:infData xmlns:resellerext="urn:ietf:params:xml:ns:resellerext-1.0">
+S:        <resellerext:resID>myreseller</resellerext:resID>
+S:        <resellerext:resName>example</resellerext:resName>
+S:      </resellerext:infData>
 S:    </extension>
 S:    <trID>
 S:      <clTRID>ngcl-IvJjzMZc</clTRID>
@@ -368,16 +368,16 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
    elements described in the EPP domain mapping [RFC5731], host mapping
    [RFC5732] and contact mapping [RFC5733], the command MUST contain an
    <extension> element, and the <extension> element MUST contain a child
-   <reseller:create> element that identifies the extension namespace if
-   the client wants to associate data defined in this extension to the
-   domain object.  The <reseller:create> element contains the following
-   child elements:
+   <resellerext:create> element that identifies the extension namespace
+   if the client wants to associate data defined in this extension to
+   the domain object.  The <resellerext:create> element contains the
+   following child elements:
 
-   o  A <reseller:resID> element that contains the identifier of the
+   o  A <resellerext:resID> element that contains the identifier of the
       reseller of a sponsoring registrar.
 
-   o  An OPTIONAL <reseller:resName> element that contains the name of
-      the reseller of a sponsoring registrar.
+   o  An OPTIONAL <resellerext:resName> element that contains the name
+      of the reseller of a sponsoring registrar.
 
    Example <create> Command:
 
@@ -414,10 +414,10 @@ C:        </domain:authInfo>
 C:      </domain:create>
 C:    </create>
 C:    <extension>
-C:      <reseller:create xmlns:reseller="urn:ietf:params:xml:ns:reseller-1.0">
-C:        <reseller:resID>myreseller</reseller:resID>
-C:        <reseller:resName>example</reseller:resName>
-C:      </reseller:create>
+C:      <resellerext:create xmlns:resellerext="urn:ietf:params:xml:ns:resellerext-1.0">
+C:        <resellerext:resID>myreseller</resellerext:resID>
+C:        <resellerext:resName>example</resellerext:resName>
+C:      </resellerext:create>
 C:    </extension>
 C:    <clTRID>ABC-12345</clTRID>
 C:  </command>
@@ -467,32 +467,32 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
    client to modify the attributes of a domain object.  In addition to
    the EPP command elements described in the EPP domain mapping, the
    command MUST contain an <extension> element, and the <extension>
-   element MUST contain a child <reseller:update> element that
+   element MUST contain a child <resellerext:update> element that
    identifies the extension namespace if the client wants to update the
    domain object with data defined in this extension.  The
-   <reseller:update> element contains the following child elements:
+   <resellerext:update> element contains the following child elements:
 
-   o  An OPTIONAL <reseller:add> element that contains attribute values
-      to be added to the object.
+   o  An OPTIONAL <resellerext:add> element that contains attribute
+      values to be added to the object.
 
-   o  An OPTIONAL <reseller:rem> element that contains attribute values
-      to be removed from the object.
+   o  An OPTIONAL <resellerext:rem> element that contains attribute
+      values to be removed from the object.
 
-   o  An OPTIONAL <reseller:chg> element that contains attribute values
-      to be changed.
+   o  An OPTIONAL <resellerext:chg> element that contains attribute
+      values to be changed.
 
-   At least one <reseller:add>, <reseller:rem> or <reseller:rem> element
-   MUST be provided.  The <reseller:add>, <reseller:rem> and
-   <reseller:rem> elements contain the following child element:
+   At least one <resellerext:add>, <resellerext:rem> or
+   <resellerext:rem> element MUST be provided.  The <resellerext:add>,
+   <resellerext:rem> and <resellerext:rem> elements contain the
+   following child element:
 
-   o  A <reseller:resID> element that contains the identifier of the
+   o  A <resellerext:resID> element that contains the identifier of the
       reseller of a sponsoring registrar.
 
-   o  An OPTIONAL <reseller:resName> element that contains the name of
-      the reseller of a sponsoring registrar.
+   o  An OPTIONAL <resellerext:resName> element that contains the name
+      of the reseller of a sponsoring registrar.
 
    Example <update> command, adding a reseller:
-
 
 
 
@@ -515,12 +515,12 @@ C:        <domain:name>example.com</domain:name>
 C:      </domain:update>
 C:    </update>
 C:    <extension>
-C:      <reseller:update xmlns:reseller="urn:ietf:params:xml:ns:reseller-1.0">
-C:        <reseller:add>
-C:          <reseller:resID>myreseller</reseller:resID>
-C:          <reseller:resName>example</reseller:resName>
-C:        </reseller:add>
-C:      </reseller:update>
+C:      <resellerext:update xmlns:resellerext="urn:ietf:params:xml:ns:resellerext-1.0">
+C:        <resellerext:add>
+C:          <resellerext:resID>myreseller</resellerext:resID>
+C:          <resellerext:resName>example</resellerext:resName>
+C:        </resellerext:add>
+C:      </resellerext:update>
 C:    </extension>
 C:    <clTRID>ABC-12345</clTRID>
 C:  </command>
@@ -539,11 +539,11 @@ C:        <domain:name>example.com</domain:name>
 C:      </domain:update>
 C:    </update>
 C:    <extension>
-C:      <reseller:update xmlns:reseller="urn:ietf:params:xml:ns:reseller-1.0">
-C:        <reseller:rem>
-C:          <reseller:resID>myreseller</reseller:resID>
-C:        </reseller:rem>
-C:      </reseller:update>
+C:      <resellerext:update xmlns:resellerext="urn:ietf:params:xml:ns:resellerext-1.0">
+C:        <resellerext:rem>
+C:          <resellerext:resID>myreseller</resellerext:resID>
+C:        </resellerext:rem>
+C:      </resellerext:update>
 C:    </extension>
 C:    <clTRID>ABC-12345</clTRID>
 C:  </command>
@@ -571,11 +571,11 @@ C:        <domain:name>example.com</domain:name>
 C:      </domain:update>
 C:    </update>
 C:    <extension>
-C:      <reseller:update xmlns:reseller="urn:ietf:params:xml:ns:reseller-1.0">
-C:        <reseller:chg>
-C:          <reseller:resID>myreseller</reseller:resID>
-C:        </reseller:chg>
-C:      </reseller:update>
+C:      <resellerext:update xmlns:resellerext="urn:ietf:params:xml:ns:resellerext-1.0">
+C:        <resellerext:chg>
+C:          <resellerext:resID>myreseller</resellerext:resID>
+C:        </resellerext:chg>
+C:      </resellerext:update>
 C:    </extension>
 C:    <clTRID>ABC-12345</clTRID>
 C:  </command>
@@ -599,8 +599,8 @@ C:</epp>
 BEGIN
 <?xml version="1.0" encoding="UTF-8"?>
 
-<schema targetNamespace="urn:ietf:params:xml:ns:reseller-1.0"
-        xmlns:resellerr="urn:ietf:params:xml:ns:reseller-1.0"
+<schema targetNamespace="urn:ietf:params:xml:ns:resellerext-1.0"
+        xmlns:resellerr="urn:ietf:params:xml:ns:resellerext-1.0"
         xmlns:epp="urn:ietf:params:xml:ns:epp-1.0"
         xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
         xmlns="http://www.w3.org/2001/XMLSchema"
@@ -631,8 +631,8 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
   </annotation>
 
 <!-- Child elements found in EPP commands. -->
-  <element name="create" type="reseller:createType"/>
-  <element name="update" type="reseller:updateType"/>
+  <element name="create" type="resellerext:createType"/>
+  <element name="update" type="resellerext:updateType"/>
 
 <!-- Child elements of the <reseller:create> command
 All elements must be present at time of creation
@@ -655,9 +655,9 @@ At least one element should be present
 
   <complexType name="updateType">
     <sequence>
-      <element name="add" type="reseller:addRemChgType" minOccurs="0"/>
-      <element name="rem" type="reseller:addRemChgType" minOccurs="0"/>
-      <element name="chg" type="reseller:addRemChgType" minOccurs="0"/>
+      <element name="add" type="resellerext:addRemChgType" minOccurs="0"/>
+      <element name="rem" type="resellerext:addRemChgType" minOccurs="0"/>
+      <element name="chg" type="resellerext:addRemChgType" minOccurs="0"/>
     </sequence>
   </complexType>
 
@@ -680,7 +680,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 <!-- Child response element -->
 
-  <element name="infData" type="reseller:infDataType"/>
+  <element name="infData" type="resellerext:infDataType"/>
 
 <!-- <reseller:infData> response elements -->
 
