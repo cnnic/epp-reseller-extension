@@ -20,10 +20,10 @@ Abstract
 
    This document describes an Extensible Provisioning Protocol (EPP) for
    provisioning and management of registry reseller extensions for
-   domain names stored in a shared central repository.  Specified in
-   Extensible Markup Language (XML), this extended mapping is applied to
-   provide additional features required for the provisioning of domain
-   resellers.
+   domain names, hosts and contacts stored in a shared central
+   repository.  Specified in Extensible Markup Language (XML), this
+   extended mapping is applied to provide additional features required
+   for the provisioning of registry resellers.
 
 Status of This Memo
 
