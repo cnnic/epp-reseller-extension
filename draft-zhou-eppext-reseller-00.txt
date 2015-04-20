@@ -5,11 +5,11 @@
 Internet Engineering Task Force                                  L. Zhou
 Internet-Draft                                                   N. Kong
 Intended status: Standards Track                                   C. Qi
-Expires: October 17, 2015                                         X. Lee
+Expires: October 21, 2015                                         X. Lee
                                                                    CNNIC
                                                                 J. Gould
                                                           VeriSign, Inc.
-                                                          April 15, 2015
+                                                          April 19, 2015
 
 
   Registry Reseller Extension for the Extensible Provisioning Protocol
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 17, 2015.
+   This Internet-Draft will expire on October 21, 2015.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Zhou, et al.            Expires October 17, 2015                [Page 1]
+Zhou, et al.            Expires October 21, 2015                [Page 1]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Zhou, et al.            Expires October 17, 2015                [Page 2]
+Zhou, et al.            Expires October 21, 2015                [Page 2]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -130,11 +130,11 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
    method could solve this problem but may increase extra cost.
 
    In order to facilitate provisioning and management of reseller
-   information in a shared central repository, this document proposes an
-   extension of [RFC5731].  Optional reseller extensions of [RFC5732]and
-   [RFC5733], which are out of scope of this document, could add the
-   elements of reseller identifier and reseller name to the same EPP
-   commands as specified in this document.
+   information in a shared central repository, this document proposes a
+   reseller extension of [RFC5731], [RFC5732] and [RFC5733].  The
+   examples provided in this document are used for the domain object for
+   illustration purposes.  The host and contact object could be extended
+   in the same way with the domain object.
 
    This document is specified using the XML 1.0 as described in
    [W3C.REC-xml-20040204]and XML Schema notation as described in
@@ -165,7 +165,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-Zhou, et al.            Expires October 17, 2015                [Page 3]
+Zhou, et al.            Expires October 21, 2015                [Page 3]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -206,13 +206,14 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
    This extension does not add any elements to the EPP <check> command
    or <check> response described in the EPP domain name mapping
-   [RFC5731].
+   [RFC5731], host mapping [RFC5732] and contact mapping [RFC5733].
 
 4.1.2.  EPP <info> Command
 
    This extension does not add any element to the EPP <info> command
-   described in the EPP domain mapping [RFC5731].  However, additional
-   elements are defined for the <info> response.
+   described in the EPP domain mapping [RFC5731], host mapping [RFC5732]
+   and contact mapping [RFC5733].  However, additional elements are
+   defined for the <info> response.
 
    Example <info> command:
 
@@ -220,8 +221,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-
-Zhou, et al.            Expires October 17, 2015                [Page 4]
+Zhou, et al.            Expires October 21, 2015                [Page 4]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -244,11 +244,12 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
    When an <info> command has been processed successfully, the EPP
    <resData> element MUST contain child elements as described in the EPP
-   domain mapping [RFC5731].  In addition, the EPP <extension> element
-   SHOULD contain a child <reseller:infData> element that identifies the
-   extension namespace if the domain object has data associated with
-   this extension and based on its service policy.  The
-   <reseller:infData> element contains the following child elements:
+   domain mapping [RFC5731], host mapping [RFC5732] and contact mapping
+   [RFC5733].  In addition, the EPP <extension> element SHOULD contain a
+   child <reseller:infData> element that identifies the extension
+   namespace if the domain object has data associated with this
+   extension and based on its service policy.  The <reseller:infData>
+   element contains the following child elements:
 
    o  A <reseller:resID> element that contains the identifier of the
       reseller of a sponsoring registrar.
@@ -276,8 +277,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-
-Zhou, et al.            Expires October 17, 2015                [Page 5]
+Zhou, et al.            Expires October 21, 2015                [Page 5]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -327,13 +327,13 @@ S:</epp>
 
 
    <info> response for the unauthorized client has not been changed, see
-   [RFC5731]for detail.
+   [RFC5731], [RFC5732] and [RFC5733]for detail.
 
 
 
 
 
-Zhou, et al.            Expires October 17, 2015                [Page 6]
+Zhou, et al.            Expires October 21, 2015                [Page 6]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -345,7 +345,8 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
    This extension does not add any elements to the EPP <transfer>
    command or <transfer> response described in the EPP domain name
-   mapping [RFC5731].
+   mapping [RFC5731], host mapping [RFC5732] and contact mapping
+   [RFC5733].
 
 4.2.  EPP Transform Commands
 
@@ -358,17 +359,19 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 4.2.1.  EPP <create> Command
 
    This extension defines additional elements for the EPP <create>
-   command described in the EPP domain mapping [RFC5731].  No additional
-   elements are defined for the EPP <create> response.
+   command described in the EPP domain mapping [RFC5731], host mapping
+   [RFC5732] and contact mapping [RFC5733].  No additional elements are
+   defined for the EPP <create> response.
 
    The EPP <create> command provides a transform operation that allows a
    client to create a domain object.  In addition to the EPP command
-   elements described in the EPP domain mapping [RFC5731], the command
-   MUST contain an <extension> element, and the <extension> element MUST
-   contain a child <reseller:create> element that identifies the
-   extension namespace if the client wants to associate data defined in
-   this extension to the domain object.  The <reseller:create> element
-   contains the following child elements:
+   elements described in the EPP domain mapping [RFC5731], host mapping
+   [RFC5732] and contact mapping [RFC5733], the command MUST contain an
+   <extension> element, and the <extension> element MUST contain a child
+   <reseller:create> element that identifies the extension namespace if
+   the client wants to associate data defined in this extension to the
+   domain object.  The <reseller:create> element contains the following
+   child elements:
 
    o  A <reseller:resID> element that contains the identifier of the
       reseller of a sponsoring registrar.
@@ -386,10 +389,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-
-
-
-Zhou, et al.            Expires October 17, 2015                [Page 7]
+Zhou, et al.            Expires October 21, 2015                [Page 7]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -425,7 +425,8 @@ C:</epp>
 
 
    When a <create> command has been processed successfully, the EPP
-   response is as described in the EPP domain mapping [RFC5731].
+   response is as described in the EPP domain mapping [RFC5731], host
+   mapping [RFC5732] and contact mapping [RFC5733].
 
    An EPP error response MUST be returned if a <create> command cannot
    be processed for any reason.
@@ -433,19 +434,18 @@ C:</epp>
 4.2.2.  EPP <delete> Command
 
    This extension does not add any elements to the EPP <delete> command
-   or <delete> response described in the EPP domain mapping [RFC5731].
+   or <delete> response described in the EPP domain mapping [RFC5731],
+   host mapping [RFC5732] and contact mapping [RFC5733].
 
 4.2.3.  EPP <renew> Command
 
    This extension does not add any elements to the EPP <renew> command
-   or <renew> response described in the EPP domain mapping [RFC5731].
+   or <renew> response described in the EPP domain mapping [RFC5731],
+   host mapping [RFC5732] and contact mapping [RFC5733].
 
 
 
-
-
-
-Zhou, et al.            Expires October 17, 2015                [Page 8]
+Zhou, et al.            Expires October 21, 2015                [Page 8]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -454,13 +454,14 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
    This extension does not add any elements to the EPP <transfer>
    command or <transfer> response described in the EPP domain mapping
-   [RFC5731].
+   [RFC5731], host mapping [RFC5732] and contact mapping [RFC5733].
 
 4.2.5.  EPP <update> Command
 
    This extension defines additional elements for the EPP <update>
-   command described in the EPP domain mapping [RFC5731].  No additional
-   elements are defined for the EPP <update> response.
+   command described in the EPP domain mapping [RFC5731], host mapping
+   [RFC5732] and contact mapping [RFC5733].  No additional elements are
+   defined for the EPP <update> response.
 
    The EPP <update> command provides a transform operation that allows a
    client to modify the attributes of a domain object.  In addition to
@@ -500,8 +501,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-
-Zhou, et al.            Expires October 17, 2015                [Page 9]
+Zhou, et al.            Expires October 21, 2015                [Page 9]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -557,7 +557,7 @@ C:</epp>
 
 
 
-Zhou, et al.            Expires October 17, 2015               [Page 10]
+Zhou, et al.            Expires October 21, 2015               [Page 10]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -584,7 +584,7 @@ C:</epp>
 
    When an extended <update> command has been processed successfully,
    the EPP response is as described in the EPP domain name mapping
-   [RFC5731].
+   [RFC5731], host mapping [RFC5732] and contact mapping [RFC5733].
 
 5.  Formal Syntax
 
@@ -613,7 +613,7 @@ Import common element types.
 
 
 
-Zhou, et al.            Expires October 17, 2015               [Page 11]
+Zhou, et al.            Expires October 21, 2015               [Page 11]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -669,7 +669,7 @@ At least one element should be present
 
 
 
-Zhou, et al.            Expires October 17, 2015               [Page 12]
+Zhou, et al.            Expires October 21, 2015               [Page 12]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -725,7 +725,7 @@ END
 
 
 
-Zhou, et al.            Expires October 17, 2015               [Page 13]
+Zhou, et al.            Expires October 21, 2015               [Page 13]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -766,8 +766,9 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
    The object mapping extension described in this document does not
    provide any other security services or introduce any additional
-   considerations beyond those described by [RFC5730], [RFC5731], or
-   those caused by the protocol layers used by EPP.
+   considerations beyond those described by [RFC5730], [RFC5731],
+   [RFC5732] and [RFC5733] or those caused by the protocol layers used
+   by EPP.
 
 9.  Normative References
 
@@ -780,8 +781,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-
-Zhou, et al.            Expires October 17, 2015               [Page 14]
+Zhou, et al.            Expires October 21, 2015               [Page 14]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -837,7 +837,7 @@ Authors' Addresses
 
 
 
-Zhou, et al.            Expires October 17, 2015               [Page 15]
+Zhou, et al.            Expires October 21, 2015               [Page 15]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -893,4 +893,4 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-Zhou, et al.            Expires October 17, 2015               [Page 16]
+Zhou, et al.            Expires October 21, 2015               [Page 16]

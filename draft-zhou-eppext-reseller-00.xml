@@ -102,10 +102,8 @@
         <section title="Introduction">
             <t>Domain resellers are the individuals or companies act as agents for ICANN accredited registrars. A domain name registrar may have several resellers to help them sell domain names to end users.</t>
             <t>Generally speaking, resellers provide domain registration information via registrar's EPP client without reseller information. On one hand, registrars are concerned about how to identify resellers. On the other hand, end users would also be confused by the WHOIS service without corresponding reseller information. This requirement imposes a challenge for the domain registries since there is no definition of resellers in the existing EPP domain name mapping. Out of band method could solve this problem but may increase extra cost.</t>
-            <t>In order to facilitate provisioning and management of reseller information in a shared central repository, this document proposes an extension of 
-            <xref target="RFC5731"></xref>. Optional reseller extensions of 
-            <xref target="RFC5732"></xref>and 
-            <xref target="RFC5733"></xref>, which are out of scope of this document, could add the elements of reseller identifier and reseller name to the same EPP commands as specified in this document.</t>
+            <t>In order to facilitate provisioning and management of reseller information in a shared central repository, this document proposes a reseller extension of 
+            <xref target="RFC5731"></xref>, <xref target="RFC5732"></xref> and <xref target="RFC5733"></xref>. The examples provided in this document are used for the domain object for illustration purposes. The host and contact object could be extended in the same way with the domain object.</t>
             <t>This document is specified using the XML 1.0 as described in 
             <xref target="W3C.REC-xml-20040204"></xref>and XML Schema notation as described in 
             <xref target="W3C.REC-xmlschema-1-20041028"></xref>and 
@@ -135,11 +133,11 @@
                 <t>EPP provides three commands to retrieve domain information: &lt;check&gt; to determine if a domain object can be provisioned within a repository, &lt;info&gt; to retrieve detailed information associated with a domain object, and &lt;transfer&gt; to retrieve domain-object transfer status information.</t>
                 <section title="EPP &lt;check&gt; Command">
                     <t>This extension does not add any elements to the EPP &lt;check&gt; command or &lt;check&gt; response described in the EPP domain name mapping 
-                    <xref target="RFC5731"></xref>.</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>.</t>
                 </section>
                 <section title="EPP &lt;info&gt; Command">
                     <t>This extension does not add any element to the EPP &lt;info&gt; command described in the EPP domain mapping 
-                    <xref target="RFC5731"></xref>. However, additional elements are defined for the &lt;info&gt; response.</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>. However, additional elements are defined for the &lt;info&gt; response.</t>
                     <t>Example &lt;info&gt; command:</t>
                     <figure>
                         <artwork>
@@ -162,7 +160,7 @@ C:</epp>
 </artwork>
                     </figure>
                     <t>When an &lt;info&gt; command has been processed successfully, the EPP &lt;resData&gt; element MUST contain child elements as described in the EPP domain mapping 
-                    <xref target="RFC5731"></xref>. In addition, the EPP &lt;extension&gt; element SHOULD contain a child &lt;reseller:infData&gt; element that identifies the extension namespace if the domain object has data associated with this extension and based on its service policy. The &lt;reseller:infData&gt; element contains the following child elements:</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>. In addition, the EPP &lt;extension&gt; element SHOULD contain a child &lt;reseller:infData&gt; element that identifies the extension namespace if the domain object has data associated with this extension and based on its service policy. The &lt;reseller:infData&gt; element contains the following child elements:</t>
                     <t>
                         <list style="symbols">
                             <t>A &lt;reseller:resID&gt; element that contains the identifier of the reseller of a sponsoring registrar.</t>
@@ -219,21 +217,21 @@ S:</epp>
 </artwork>
                     </figure>
                     <t>&lt;info&gt; response for the unauthorized client has not been changed, see 
-                    <xref target="RFC5731"></xref>for detail.</t>
+                    <xref target="RFC5731"></xref>, <xref target="RFC5732"></xref> and <xref target="RFC5733"></xref>for detail.</t>
                     <t>An EPP error response MUST be returned if an &lt;info&gt; command cannot be processed for any reason.</t>
                 </section>
                 <section title="EPP &lt;transfer&gt; Command">
                     <t>This extension does not add any elements to the EPP &lt;transfer&gt; command or &lt;transfer&gt; response described in the EPP domain name mapping 
-                    <xref target="RFC5731"></xref>.</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>.</t>
                 </section>
             </section>
             <section title="EPP Transform Commands">
                 <t>EPP provides five commands to transform domain objects: &lt;create&gt; to create an instance of a domain object, &lt;delete&gt; to delete an instance of a domain object, &lt;renew&gt; to extend the validity period of a domain object, &lt;transfer&gt; to manage domain object sponsorship changes, and &lt;update&gt; to change information associated with a domain object.</t>
                 <section title="EPP &lt;create&gt; Command">
                     <t>This extension defines additional elements for the EPP &lt;create&gt; command described in the EPP domain mapping 
-                    <xref target="RFC5731"></xref>. No additional elements are defined for the EPP &lt;create&gt; response.</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>. No additional elements are defined for the EPP &lt;create&gt; response.</t>
                     <t>The EPP &lt;create&gt; command provides a transform operation that allows a client to create a domain object. In addition to the EPP command elements described in the EPP domain mapping 
-                    <xref target="RFC5731"></xref>, the command MUST contain an &lt;extension&gt; element, and the &lt;extension&gt; element MUST contain a child &lt;reseller:create&gt; element that identifies the extension namespace if the client wants to associate data defined in this extension to the domain object. The &lt;reseller:create&gt; element contains the following child elements:</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>, the command MUST contain an &lt;extension&gt; element, and the &lt;extension&gt; element MUST contain a child &lt;reseller:create&gt; element that identifies the extension namespace if the client wants to associate data defined in this extension to the domain object. The &lt;reseller:create&gt; element contains the following child elements:</t>
                     <t>
                         <list style="symbols">
                             <t>A &lt;reseller:resID&gt; element that contains the identifier of the reseller of a sponsoring registrar.</t>
@@ -276,24 +274,24 @@ C:</epp>
 </artwork>
                     </figure>
                     <t>When a &lt;create&gt; command has been processed successfully, the EPP response is as described in the EPP domain mapping 
-                    <xref target="RFC5731"></xref>.</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>.</t>
                     <t>An EPP error response MUST be returned if a &lt;create&gt; command cannot be processed for any reason.</t>
                 </section>
                 <section title="EPP &lt;delete&gt; Command">
                     <t>This extension does not add any elements to the EPP &lt;delete&gt; command or &lt;delete&gt; response described in the EPP domain mapping 
-                    <xref target="RFC5731"></xref>.</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>.</t>
                 </section>
                 <section title="EPP &lt;renew&gt; Command">
                     <t>This extension does not add any elements to the EPP &lt;renew&gt; command or &lt;renew&gt; response described in the EPP domain mapping 
-                    <xref target="RFC5731"></xref>.</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>.</t>
                 </section>
                 <section title="EPP &lt;transfer&gt; Command">
                     <t>This extension does not add any elements to the EPP &lt;transfer&gt; command or &lt;transfer&gt; response described in the EPP domain mapping 
-                    <xref target="RFC5731"></xref>.</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>.</t>
                 </section>
                 <section title="EPP &lt;update&gt; Command">
                     <t>This extension defines additional elements for the EPP &lt;update&gt; command described in the EPP domain mapping 
-                    <xref target="RFC5731"></xref>. No additional elements are defined for the EPP &lt;update&gt; response.</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>. No additional elements are defined for the EPP &lt;update&gt; response.</t>
                     <t>The EPP &lt;update&gt; command provides a transform operation that allows a client to modify the attributes of a domain object. In addition to the EPP command elements described in the EPP domain mapping, the command MUST contain an &lt;extension&gt; element, and the &lt;extension&gt; element MUST contain a child &lt;reseller:update&gt; element that identifies the extension namespace if the client wants to update the domain object with data defined in this extension. The &lt;reseller:update&gt; element contains the following child elements:</t>
                     <t>
                         <list style="symbols">
@@ -386,7 +384,7 @@ C:</epp>
 </artwork>
                     </figure>
                     <t>When an extended &lt;update&gt; command has been processed successfully, the EPP response is as described in the EPP domain name mapping 
-                    <xref target="RFC5731"></xref>.</t>
+                    <xref target="RFC5731"></xref>, host mapping <xref target="RFC5732"></xref> and contact mapping <xref target="RFC5733"></xref>.</t>
                 </section>
             </section>
         </section>
@@ -517,7 +515,7 @@ END
         <section title="Security Considerations" anchor="security">
             <t>The object mapping extension described in this document does not provide any other security services or introduce any additional considerations beyond those described by 
             <xref target="RFC5730"></xref>, 
-            <xref target="RFC5731"></xref>, or those caused by the protocol layers used by EPP.</t>
+            <xref target="RFC5731"></xref>, <xref target="RFC5732"></xref> and <xref target="RFC5733"></xref> or those caused by the protocol layers used by EPP.</t>
         </section>
     </middle>
     <back>
