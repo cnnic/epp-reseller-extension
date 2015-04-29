@@ -105,8 +105,8 @@
             <t>In order to facilitate provisioning and management of reseller information in a shared central repository, this document proposes a reseller extension of 
             <xref target="RFC5731"></xref>, <xref target="RFC5732"></xref> and <xref target="RFC5733"></xref>. The examples provided in this document are used for the domain object for illustration purposes. The host and contact object could be extended in the same way with the domain object.</t>
             <t>This document is specified using the XML 1.0 as described in 
-            <xref target="W3C.REC-xml-20040204"></xref>and XML Schema notation as described in 
-            <xref target="W3C.REC-xmlschema-1-20041028"></xref>and 
+            <xref target="W3C.REC-xml-20040204"></xref> and XML Schema notation as described in 
+            <xref target="W3C.REC-xmlschema-1-20041028"></xref> and 
             <xref target="W3C.REC-xmlschema-2-20041028"></xref>.</t>
         </section>
         <section title="Conventions Used in This Document">

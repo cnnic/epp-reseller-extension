@@ -5,11 +5,11 @@
 Internet Engineering Task Force                                  L. Zhou
 Internet-Draft                                                   N. Kong
 Intended status: Standards Track                                   C. Qi
-Expires: October 21, 2015                                         X. Lee
+Expires: October 29, 2015                                         X. Lee
                                                                    CNNIC
                                                                 J. Gould
                                                           VeriSign, Inc.
-                                                          April 19, 2015
+                                                          April 27, 2015
 
 
   Registry Reseller Extension for the Extensible Provisioning Protocol
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 21, 2015.
+   This Internet-Draft will expire on October 29, 2015.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Zhou, et al.            Expires October 21, 2015                [Page 1]
+Zhou, et al.            Expires October 29, 2015                [Page 1]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Zhou, et al.            Expires October 21, 2015                [Page 2]
+Zhou, et al.            Expires October 29, 2015                [Page 2]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -137,8 +137,8 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
    in the same way with the domain object.
 
    This document is specified using the XML 1.0 as described in
-   [W3C.REC-xml-20040204]and XML Schema notation as described in
-   [W3C.REC-xmlschema-1-20041028]and [W3C.REC-xmlschema-2-20041028].
+   [W3C.REC-xml-20040204] and XML Schema notation as described in
+   [W3C.REC-xmlschema-1-20041028] and [W3C.REC-xmlschema-2-20041028].
 
 2.  Conventions Used in This Document
 
@@ -165,7 +165,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-Zhou, et al.            Expires October 21, 2015                [Page 3]
+Zhou, et al.            Expires October 29, 2015                [Page 3]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -221,7 +221,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-Zhou, et al.            Expires October 21, 2015                [Page 4]
+Zhou, et al.            Expires October 29, 2015                [Page 4]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -277,7 +277,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-Zhou, et al.            Expires October 21, 2015                [Page 5]
+Zhou, et al.            Expires October 29, 2015                [Page 5]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -333,7 +333,7 @@ S:</epp>
 
 
 
-Zhou, et al.            Expires October 21, 2015                [Page 6]
+Zhou, et al.            Expires October 29, 2015                [Page 6]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -389,7 +389,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-Zhou, et al.            Expires October 21, 2015                [Page 7]
+Zhou, et al.            Expires October 29, 2015                [Page 7]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -445,7 +445,7 @@ C:</epp>
 
 
 
-Zhou, et al.            Expires October 21, 2015                [Page 8]
+Zhou, et al.            Expires October 29, 2015                [Page 8]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -501,7 +501,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-Zhou, et al.            Expires October 21, 2015                [Page 9]
+Zhou, et al.            Expires October 29, 2015                [Page 9]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -557,7 +557,7 @@ C:</epp>
 
 
 
-Zhou, et al.            Expires October 21, 2015               [Page 10]
+Zhou, et al.            Expires October 29, 2015               [Page 10]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -613,7 +613,7 @@ Import common element types.
 
 
 
-Zhou, et al.            Expires October 21, 2015               [Page 11]
+Zhou, et al.            Expires October 29, 2015               [Page 11]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -669,7 +669,7 @@ At least one element should be present
 
 
 
-Zhou, et al.            Expires October 21, 2015               [Page 12]
+Zhou, et al.            Expires October 29, 2015               [Page 12]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -725,7 +725,7 @@ END
 
 
 
-Zhou, et al.            Expires October 21, 2015               [Page 13]
+Zhou, et al.            Expires October 29, 2015               [Page 13]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -781,7 +781,7 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-Zhou, et al.            Expires October 21, 2015               [Page 14]
+Zhou, et al.            Expires October 29, 2015               [Page 14]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -837,7 +837,7 @@ Authors' Addresses
 
 
 
-Zhou, et al.            Expires October 21, 2015               [Page 15]
+Zhou, et al.            Expires October 29, 2015               [Page 15]
 
 Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
@@ -893,4 +893,4 @@ Internet-Draft   Registry Reseller Extension for the EPP      April 2015
 
 
 
-Zhou, et al.            Expires October 21, 2015               [Page 16]
+Zhou, et al.            Expires October 29, 2015               [Page 16]
